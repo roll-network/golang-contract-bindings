@@ -34,11 +34,11 @@ cp ../roll-smart-contracts/deploy/localhost/SocialMoney.abi      ./social-money/
 ```
 
 ```
-abigen --abi=./social-money/abi/Manager.abi           --pkg=contracts --out=./social-money/Manager.go
-abigen --abi=./social-money/abi/Registry.abi          --pkg=contracts --out=./social-money/Registry.go
-abigen --abi=./social-money/abi/TokenFactory.abi      --pkg=contracts --out=./social-money/TokenFactory.go
-abigen --abi=./social-money/abi/TokenVesting.abi      --pkg=contracts --out=./social-money/TokenVesting.go
-abigen --abi=./social-money/abi/SocialMoney.abi       --pkg=contracts --out=./social-money/SocialMoney.go
+abigen --abi=./social-money/abi/Manager.abi           --pkg=manager --out=./social-money/Manager.go
+abigen --abi=./social-money/abi/Registry.abi          --pkg=registry --out=./social-money/Registry.go
+abigen --abi=./social-money/abi/TokenFactory.abi      --pkg=tokenFactory --out=./social-money/TokenFactory.go
+abigen --abi=./social-money/abi/TokenVesting.abi      --pkg=tokenVesting --out=./social-money/TokenVesting.go
+abigen --abi=./social-money/abi/SocialMoney.abi       --pkg=socialMoney --out=./social-money/SocialMoney.go
 ```
 
 ## Import using private repo
