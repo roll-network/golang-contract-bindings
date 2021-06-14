@@ -30,15 +30,19 @@ cp ../roll-smart-contracts/deploy/localhost/Registry.abi         ./social-money/
 cp ../roll-smart-contracts/deploy/localhost/TokenFactory.abi     ./social-money/abi/TokenFactory.abi
 cp ../roll-smart-contracts/deploy/localhost/TokenVesting.abi     ./social-money/abi/TokenVesting.abi
 cp ../roll-smart-contracts/deploy/localhost/SocialMoney.abi      ./social-money/abi/SocialMoney.abi
+cp ../roll-smart-contracts/deploy/localhost/RollApprover.abi      ./social-money/abi/MultiSigWallet.abi
+cp ../roll-smart-contracts/deploy/localhost/ERC20.abi      ./social-money/abi/ERC20.abi
 
 ```
 
 ```
-abigen --abi=./social-money/abi/Manager.abi           --pkg=manager --out=./social-money/Manager.go
-abigen --abi=./social-money/abi/Registry.abi          --pkg=registry --out=./social-money/Registry.go
-abigen --abi=./social-money/abi/TokenFactory.abi      --pkg=tokenFactory --out=./social-money/TokenFactory.go
-abigen --abi=./social-money/abi/TokenVesting.abi      --pkg=tokenVesting --out=./social-money/TokenVesting.go
-abigen --abi=./social-money/abi/SocialMoney.abi       --pkg=socialMoney --out=./social-money/SocialMoney.go
+abigen --abi=./social-money/abi/Manager.abi           --pkg=manager --out=./social-money/contracts/Manager.go
+abigen --abi=./social-money/abi/Registry.abi          --pkg=registry --out=./social-money/contracts/Registry.go
+abigen --abi=./social-money/abi/TokenFactory.abi      --pkg=tokenFactory --out=./social-money/contracts/TokenFactory.go
+abigen --abi=./social-money/abi/TokenVesting.abi      --pkg=tokenVesting --out=./social-money/contracts/TokenVesting.go
+abigen --abi=./social-money/abi/SocialMoney.abi       --pkg=socialMoney --out=./social-money/contracts/SocialMoney.go
+abigen --abi=./social-money/abi/MultiSigWallet.abi       --pkg=multiSigWallet --out=./social-money/contracts/MultiSigWallet.go
+abigen --abi=./social-money/abi/ERC20.abi       --pkg=ERC20 --out=./social-money/contracts/ERC20.go
 ```
 
 ## Import using private repo
