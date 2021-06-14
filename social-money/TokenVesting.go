@@ -26,8 +26,8 @@ var (
 	_ = event.NewSubscription
 )
 
-// Struct1 is an auto generated low-level Go binding around an user-defined struct.
-type Struct1 struct {
+// TokenVestingStruct0 is an auto generated low-level Go binding around an user-defined struct.
+type TokenVestingStruct0 struct {
 	VestingBeneficiary common.Address
 	TotalBalance       *big.Int
 	BeneficiariesCount *big.Int
@@ -331,15 +331,15 @@ func (_TokenVesting *TokenVestingCallerSession) GetAllTokensByBeneficiary(_benef
 // GetVestingInfo is a free data retrieval call binding the contract method 0xfb897ce4.
 //
 // Solidity: function getVestingInfo(address _token) view returns((address,uint256,uint256,uint256,uint256))
-func (_TokenVesting *TokenVestingCaller) GetVestingInfo(opts *bind.CallOpts, _token common.Address) (Struct1, error) {
+func (_TokenVesting *TokenVestingCaller) GetVestingInfo(opts *bind.CallOpts, _token common.Address) (TokenVestingStruct0, error) {
 	var out []interface{}
 	err := _TokenVesting.contract.Call(opts, &out, "getVestingInfo", _token)
 
 	if err != nil {
-		return *new(Struct1), err
+		return *new(TokenVestingStruct0), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(Struct1)).(*Struct1)
+	out0 := *abi.ConvertType(out[0], new(TokenVestingStruct0)).(*TokenVestingStruct0)
 
 	return out0, err
 
@@ -348,14 +348,14 @@ func (_TokenVesting *TokenVestingCaller) GetVestingInfo(opts *bind.CallOpts, _to
 // GetVestingInfo is a free data retrieval call binding the contract method 0xfb897ce4.
 //
 // Solidity: function getVestingInfo(address _token) view returns((address,uint256,uint256,uint256,uint256))
-func (_TokenVesting *TokenVestingSession) GetVestingInfo(_token common.Address) (Struct1, error) {
+func (_TokenVesting *TokenVestingSession) GetVestingInfo(_token common.Address) (TokenVestingStruct0, error) {
 	return _TokenVesting.Contract.GetVestingInfo(&_TokenVesting.CallOpts, _token)
 }
 
 // GetVestingInfo is a free data retrieval call binding the contract method 0xfb897ce4.
 //
 // Solidity: function getVestingInfo(address _token) view returns((address,uint256,uint256,uint256,uint256))
-func (_TokenVesting *TokenVestingCallerSession) GetVestingInfo(_token common.Address) (Struct1, error) {
+func (_TokenVesting *TokenVestingCallerSession) GetVestingInfo(_token common.Address) (TokenVestingStruct0, error) {
 	return _TokenVesting.Contract.GetVestingInfo(&_TokenVesting.CallOpts, _token)
 }
 
