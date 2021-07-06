@@ -26,29 +26,29 @@ var (
 	_ = event.NewSubscription
 )
 
-// Struct0 is an auto generated low-level Go binding around an user-defined struct.
-type Struct0 struct {
+// RegistryStruct0 is an auto generated low-level Go binding around an user-defined struct.
+type RegistryStruct0 struct {
 	Token                     common.Address
 	Name                      string
 	Symbol                    string
-	Decimals                  uint8
 	TotalSupply               *big.Int
+	VestingPeriodInDays       *big.Int
 	Proposer                  common.Address
 	VestingBeneficiary        common.Address
-	InitialPercentage         uint8
-	VestingPeriodInDays       *big.Int
-	Approved                  bool
 	InitialPlatformPercentage uint8
+	Decimals                  uint8
+	InitialPercentage         uint8
+	Approved                  bool
 }
 
-// Struct1 is an auto generated low-level Go binding around an user-defined struct.
-type Struct1 struct {
+// RegistryStruct1 is an auto generated low-level Go binding around an user-defined struct.
+type RegistryStruct1 struct {
 	Referral           common.Address
 	ReferralPercentage uint8
 }
 
 // RegistryABI is the input ABI used to generate the binding from.
-const RegistryABI = "[{\"type\":\"event\",\"anonymous\":false,\"name\":\"LogProposalApprove\",\"inputs\":[{\"type\":\"string\",\"name\":\"name\",\"indexed\":false},{\"type\":\"address\",\"name\":\"tokenAddress\",\"indexed\":true}]},{\"type\":\"event\",\"anonymous\":false,\"name\":\"LogProposalImported\",\"inputs\":[{\"type\":\"string\",\"name\":\"name\",\"indexed\":false},{\"type\":\"string\",\"name\":\"symbol\",\"indexed\":false},{\"type\":\"address\",\"name\":\"proposer\",\"indexed\":false},{\"type\":\"bytes32\",\"name\":\"hashIndex\",\"indexed\":true}]},{\"type\":\"event\",\"anonymous\":false,\"name\":\"LogProposalReferralSubmit\",\"inputs\":[{\"type\":\"address\",\"name\":\"referral\",\"indexed\":false},{\"type\":\"uint8\",\"name\":\"referralPercentage\",\"indexed\":false},{\"type\":\"bytes32\",\"name\":\"hashIndex\",\"indexed\":true}]},{\"type\":\"event\",\"anonymous\":false,\"name\":\"LogProposalSubmit\",\"inputs\":[{\"type\":\"string\",\"name\":\"name\",\"indexed\":false},{\"type\":\"string\",\"name\":\"symbol\",\"indexed\":false},{\"type\":\"address\",\"name\":\"proposer\",\"indexed\":false},{\"type\":\"bytes32\",\"name\":\"hashIndex\",\"indexed\":true}]},{\"type\":\"event\",\"anonymous\":false,\"name\":\"OwnershipTransferred\",\"inputs\":[{\"type\":\"address\",\"name\":\"previousOwner\",\"indexed\":true},{\"type\":\"address\",\"name\":\"newOwner\",\"indexed\":true}]},{\"type\":\"function\",\"name\":\"approveProposal\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"bytes32\",\"name\":\"_hashIndex\"},{\"type\":\"address\",\"name\":\"_token\"}],\"outputs\":[{\"type\":\"bool\"}]},{\"type\":\"function\",\"name\":\"creatorReferral\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"bytes32\"}],\"outputs\":[{\"type\":\"address\",\"name\":\"referral\"},{\"type\":\"uint8\",\"name\":\"referralPercentage\"}]},{\"type\":\"function\",\"name\":\"getCreatorByIndex\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"bytes32\",\"name\":\"_hashIndex\"}],\"outputs\":[{\"type\":\"tuple\",\"components\":[{\"type\":\"address\",\"name\":\"token\"},{\"type\":\"string\",\"name\":\"name\"},{\"type\":\"string\",\"name\":\"symbol\"},{\"type\":\"uint8\",\"name\":\"decimals\"},{\"type\":\"uint256\",\"name\":\"totalSupply\"},{\"type\":\"address\",\"name\":\"proposer\"},{\"type\":\"address\",\"name\":\"vestingBeneficiary\"},{\"type\":\"uint8\",\"name\":\"initialPercentage\"},{\"type\":\"uint256\",\"name\":\"vestingPeriodInDays\"},{\"type\":\"bool\",\"name\":\"approved\"},{\"type\":\"uint8\",\"name\":\"initialPlatformPercentage\"}]}]},{\"type\":\"function\",\"name\":\"getCreatorByName\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_name\"}],\"outputs\":[{\"type\":\"tuple\",\"components\":[{\"type\":\"address\",\"name\":\"token\"},{\"type\":\"string\",\"name\":\"name\"},{\"type\":\"string\",\"name\":\"symbol\"},{\"type\":\"uint8\",\"name\":\"decimals\"},{\"type\":\"uint256\",\"name\":\"totalSupply\"},{\"type\":\"address\",\"name\":\"proposer\"},{\"type\":\"address\",\"name\":\"vestingBeneficiary\"},{\"type\":\"uint8\",\"name\":\"initialPercentage\"},{\"type\":\"uint256\",\"name\":\"vestingPeriodInDays\"},{\"type\":\"bool\",\"name\":\"approved\"},{\"type\":\"uint8\",\"name\":\"initialPlatformPercentage\"}]}]},{\"type\":\"function\",\"name\":\"getCreatorBySymbol\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_symbol\"}],\"outputs\":[{\"type\":\"tuple\",\"components\":[{\"type\":\"address\",\"name\":\"token\"},{\"type\":\"string\",\"name\":\"name\"},{\"type\":\"string\",\"name\":\"symbol\"},{\"type\":\"uint8\",\"name\":\"decimals\"},{\"type\":\"uint256\",\"name\":\"totalSupply\"},{\"type\":\"address\",\"name\":\"proposer\"},{\"type\":\"address\",\"name\":\"vestingBeneficiary\"},{\"type\":\"uint8\",\"name\":\"initialPercentage\"},{\"type\":\"uint256\",\"name\":\"vestingPeriodInDays\"},{\"type\":\"bool\",\"name\":\"approved\"},{\"type\":\"uint8\",\"name\":\"initialPlatformPercentage\"}]}]},{\"type\":\"function\",\"name\":\"getCreatorReferralByIndex\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"bytes32\",\"name\":\"_hashIndex\"}],\"outputs\":[{\"type\":\"tuple\",\"components\":[{\"type\":\"address\",\"name\":\"referral\"},{\"type\":\"uint8\",\"name\":\"referralPercentage\"}]}]},{\"type\":\"function\",\"name\":\"getIndexByName\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_name\"}],\"outputs\":[{\"type\":\"bytes32\"}]},{\"type\":\"function\",\"name\":\"getIndexBySymbol\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_symbol\"}],\"outputs\":[{\"type\":\"bytes32\"}]},{\"type\":\"function\",\"name\":\"importByIndex\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"bytes32\",\"name\":\"_hashIndex\"},{\"type\":\"address\",\"name\":\"_oldRegistry\"}],\"outputs\":[]},{\"type\":\"function\",\"name\":\"initialize\",\"constant\":false,\"payable\":false,\"inputs\":[],\"outputs\":[]},{\"type\":\"function\",\"name\":\"owner\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[],\"outputs\":[{\"type\":\"address\"}]},{\"type\":\"function\",\"name\":\"renounceOwnership\",\"constant\":false,\"payable\":false,\"inputs\":[],\"outputs\":[]},{\"type\":\"function\",\"name\":\"rolodex\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"bytes32\"}],\"outputs\":[{\"type\":\"address\",\"name\":\"token\"},{\"type\":\"string\",\"name\":\"name\"},{\"type\":\"string\",\"name\":\"symbol\"},{\"type\":\"uint8\",\"name\":\"decimals\"},{\"type\":\"uint256\",\"name\":\"totalSupply\"},{\"type\":\"address\",\"name\":\"proposer\"},{\"type\":\"address\",\"name\":\"vestingBeneficiary\"},{\"type\":\"uint8\",\"name\":\"initialPercentage\"},{\"type\":\"uint256\",\"name\":\"vestingPeriodInDays\"},{\"type\":\"bool\",\"name\":\"approved\"},{\"type\":\"uint8\",\"name\":\"initialPlatformPercentage\"}]},{\"type\":\"function\",\"name\":\"submitProposal\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_name\"},{\"type\":\"string\",\"name\":\"_symbol\"},{\"type\":\"uint8\",\"name\":\"_decimals\"},{\"type\":\"uint256\",\"name\":\"_totalSupply\"},{\"type\":\"uint8\",\"name\":\"_initialPercentage\"},{\"type\":\"uint256\",\"name\":\"_vestingPeriodInDays\"},{\"type\":\"address\",\"name\":\"_vestingBeneficiary\"},{\"type\":\"address\",\"name\":\"_proposer\"},{\"type\":\"uint8\",\"name\":\"_initialPlatformPercentage\"}],\"outputs\":[{\"type\":\"bytes32\",\"name\":\"hashIndex\"}]},{\"type\":\"function\",\"name\":\"submitProposalReferral\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"bytes32\",\"name\":\"_hashIndex\"},{\"type\":\"address\",\"name\":\"_referral\"},{\"type\":\"uint8\",\"name\":\"_referralPercentage\"}],\"outputs\":[]},{\"type\":\"function\",\"name\":\"transferOwnership\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"address\",\"name\":\"newOwner\"}],\"outputs\":[]}]"
+const RegistryABI = "[{\"type\":\"event\",\"anonymous\":false,\"name\":\"LogProposalApprove\",\"inputs\":[{\"type\":\"string\",\"name\":\"name\",\"indexed\":false},{\"type\":\"address\",\"name\":\"tokenAddress\",\"indexed\":true}]},{\"type\":\"event\",\"anonymous\":false,\"name\":\"LogProposalImported\",\"inputs\":[{\"type\":\"string\",\"name\":\"name\",\"indexed\":false},{\"type\":\"string\",\"name\":\"symbol\",\"indexed\":false},{\"type\":\"address\",\"name\":\"proposer\",\"indexed\":false},{\"type\":\"bytes32\",\"name\":\"hashIndex\",\"indexed\":true}]},{\"type\":\"event\",\"anonymous\":false,\"name\":\"LogProposalReferralSubmit\",\"inputs\":[{\"type\":\"address\",\"name\":\"referral\",\"indexed\":false},{\"type\":\"uint8\",\"name\":\"referralPercentage\",\"indexed\":false},{\"type\":\"bytes32\",\"name\":\"hashIndex\",\"indexed\":true}]},{\"type\":\"event\",\"anonymous\":false,\"name\":\"LogProposalSubmit\",\"inputs\":[{\"type\":\"string\",\"name\":\"name\",\"indexed\":false},{\"type\":\"string\",\"name\":\"symbol\",\"indexed\":false},{\"type\":\"address\",\"name\":\"proposer\",\"indexed\":false},{\"type\":\"bytes32\",\"name\":\"hashIndex\",\"indexed\":true}]},{\"type\":\"event\",\"anonymous\":false,\"name\":\"OwnershipTransferred\",\"inputs\":[{\"type\":\"address\",\"name\":\"previousOwner\",\"indexed\":true},{\"type\":\"address\",\"name\":\"newOwner\",\"indexed\":true}]},{\"type\":\"function\",\"name\":\"approveProposal\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"bytes32\",\"name\":\"_hashIndex\"},{\"type\":\"address\",\"name\":\"_token\"}],\"outputs\":[{\"type\":\"bool\"}]},{\"type\":\"function\",\"name\":\"creatorReferral\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"bytes32\"}],\"outputs\":[{\"type\":\"address\",\"name\":\"referral\"},{\"type\":\"uint8\",\"name\":\"referralPercentage\"}]},{\"type\":\"function\",\"name\":\"getCreatorByIndex\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"bytes32\",\"name\":\"_hashIndex\"}],\"outputs\":[{\"type\":\"tuple\",\"components\":[{\"type\":\"address\",\"name\":\"token\"},{\"type\":\"string\",\"name\":\"name\"},{\"type\":\"string\",\"name\":\"symbol\"},{\"type\":\"uint256\",\"name\":\"totalSupply\"},{\"type\":\"uint256\",\"name\":\"vestingPeriodInDays\"},{\"type\":\"address\",\"name\":\"proposer\"},{\"type\":\"address\",\"name\":\"vestingBeneficiary\"},{\"type\":\"uint8\",\"name\":\"initialPlatformPercentage\"},{\"type\":\"uint8\",\"name\":\"decimals\"},{\"type\":\"uint8\",\"name\":\"initialPercentage\"},{\"type\":\"bool\",\"name\":\"approved\"}]}]},{\"type\":\"function\",\"name\":\"getCreatorByName\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_name\"}],\"outputs\":[{\"type\":\"tuple\",\"components\":[{\"type\":\"address\",\"name\":\"token\"},{\"type\":\"string\",\"name\":\"name\"},{\"type\":\"string\",\"name\":\"symbol\"},{\"type\":\"uint256\",\"name\":\"totalSupply\"},{\"type\":\"uint256\",\"name\":\"vestingPeriodInDays\"},{\"type\":\"address\",\"name\":\"proposer\"},{\"type\":\"address\",\"name\":\"vestingBeneficiary\"},{\"type\":\"uint8\",\"name\":\"initialPlatformPercentage\"},{\"type\":\"uint8\",\"name\":\"decimals\"},{\"type\":\"uint8\",\"name\":\"initialPercentage\"},{\"type\":\"bool\",\"name\":\"approved\"}]}]},{\"type\":\"function\",\"name\":\"getCreatorBySymbol\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_symbol\"}],\"outputs\":[{\"type\":\"tuple\",\"components\":[{\"type\":\"address\",\"name\":\"token\"},{\"type\":\"string\",\"name\":\"name\"},{\"type\":\"string\",\"name\":\"symbol\"},{\"type\":\"uint256\",\"name\":\"totalSupply\"},{\"type\":\"uint256\",\"name\":\"vestingPeriodInDays\"},{\"type\":\"address\",\"name\":\"proposer\"},{\"type\":\"address\",\"name\":\"vestingBeneficiary\"},{\"type\":\"uint8\",\"name\":\"initialPlatformPercentage\"},{\"type\":\"uint8\",\"name\":\"decimals\"},{\"type\":\"uint8\",\"name\":\"initialPercentage\"},{\"type\":\"bool\",\"name\":\"approved\"}]}]},{\"type\":\"function\",\"name\":\"getCreatorReferralByIndex\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"bytes32\",\"name\":\"_hashIndex\"}],\"outputs\":[{\"type\":\"tuple\",\"components\":[{\"type\":\"address\",\"name\":\"referral\"},{\"type\":\"uint8\",\"name\":\"referralPercentage\"}]}]},{\"type\":\"function\",\"name\":\"getIndexByName\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_name\"}],\"outputs\":[{\"type\":\"bytes32\"}]},{\"type\":\"function\",\"name\":\"getIndexBySymbol\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_symbol\"}],\"outputs\":[{\"type\":\"bytes32\"}]},{\"type\":\"function\",\"name\":\"importByIndex\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"bytes32\",\"name\":\"_hashIndex\"},{\"type\":\"address\",\"name\":\"_oldRegistry\"}],\"outputs\":[]},{\"type\":\"function\",\"name\":\"initialize\",\"constant\":false,\"payable\":false,\"inputs\":[],\"outputs\":[]},{\"type\":\"function\",\"name\":\"legacyProposals\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_name\"}],\"outputs\":[{\"type\":\"tuple\",\"components\":[{\"type\":\"address\",\"name\":\"token\"},{\"type\":\"string\",\"name\":\"name\"},{\"type\":\"string\",\"name\":\"symbol\"},{\"type\":\"uint256\",\"name\":\"totalSupply\"},{\"type\":\"uint256\",\"name\":\"vestingPeriodInDays\"},{\"type\":\"address\",\"name\":\"proposer\"},{\"type\":\"address\",\"name\":\"vestingBeneficiary\"},{\"type\":\"uint8\",\"name\":\"initialPlatformPercentage\"},{\"type\":\"uint8\",\"name\":\"decimals\"},{\"type\":\"uint8\",\"name\":\"initialPercentage\"},{\"type\":\"bool\",\"name\":\"approved\"}]}]},{\"type\":\"function\",\"name\":\"owner\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[],\"outputs\":[{\"type\":\"address\"}]},{\"type\":\"function\",\"name\":\"renounceOwnership\",\"constant\":false,\"payable\":false,\"inputs\":[],\"outputs\":[]},{\"type\":\"function\",\"name\":\"rolodex\",\"constant\":true,\"stateMutability\":\"view\",\"payable\":false,\"inputs\":[{\"type\":\"bytes32\"}],\"outputs\":[{\"type\":\"address\",\"name\":\"token\"},{\"type\":\"string\",\"name\":\"name\"},{\"type\":\"string\",\"name\":\"symbol\"},{\"type\":\"uint256\",\"name\":\"totalSupply\"},{\"type\":\"uint256\",\"name\":\"vestingPeriodInDays\"},{\"type\":\"address\",\"name\":\"proposer\"},{\"type\":\"address\",\"name\":\"vestingBeneficiary\"},{\"type\":\"uint8\",\"name\":\"initialPlatformPercentage\"},{\"type\":\"uint8\",\"name\":\"decimals\"},{\"type\":\"uint8\",\"name\":\"initialPercentage\"},{\"type\":\"bool\",\"name\":\"approved\"}]},{\"type\":\"function\",\"name\":\"setLegacyRegistryAddress\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"address\",\"name\":\"_legacyRegistry\"}],\"outputs\":[]},{\"type\":\"function\",\"name\":\"submitProposal\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"string\",\"name\":\"_name\"},{\"type\":\"string\",\"name\":\"_symbol\"},{\"type\":\"uint8\",\"name\":\"_decimals\"},{\"type\":\"uint256\",\"name\":\"_totalSupply\"},{\"type\":\"uint8\",\"name\":\"_initialPercentage\"},{\"type\":\"uint256\",\"name\":\"_vestingPeriodInDays\"},{\"type\":\"address\",\"name\":\"_vestingBeneficiary\"},{\"type\":\"address\",\"name\":\"_proposer\"},{\"type\":\"uint8\",\"name\":\"_initialPlatformPercentage\"}],\"outputs\":[{\"type\":\"bytes32\",\"name\":\"hashIndex\"}]},{\"type\":\"function\",\"name\":\"submitProposalReferral\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"bytes32\",\"name\":\"_hashIndex\"},{\"type\":\"address\",\"name\":\"_referral\"},{\"type\":\"uint8\",\"name\":\"_referralPercentage\"}],\"outputs\":[]},{\"type\":\"function\",\"name\":\"transferOwnership\",\"constant\":false,\"payable\":false,\"inputs\":[{\"type\":\"address\",\"name\":\"newOwner\"}],\"outputs\":[]}]"
 
 // Registry is an auto generated Go binding around an Ethereum contract.
 type Registry struct {
@@ -239,16 +239,16 @@ func (_Registry *RegistryCallerSession) CreatorReferral(arg0 [32]byte) (struct {
 
 // GetCreatorByIndex is a free data retrieval call binding the contract method 0x969033a4.
 //
-// Solidity: function getCreatorByIndex(bytes32 _hashIndex) view returns((address,string,string,uint8,uint256,address,address,uint8,uint256,bool,uint8))
-func (_Registry *RegistryCaller) GetCreatorByIndex(opts *bind.CallOpts, _hashIndex [32]byte) (Struct0, error) {
+// Solidity: function getCreatorByIndex(bytes32 _hashIndex) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistryCaller) GetCreatorByIndex(opts *bind.CallOpts, _hashIndex [32]byte) (RegistryStruct0, error) {
 	var out []interface{}
 	err := _Registry.contract.Call(opts, &out, "getCreatorByIndex", _hashIndex)
 
 	if err != nil {
-		return *new(Struct0), err
+		return *new(RegistryStruct0), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(Struct0)).(*Struct0)
+	out0 := *abi.ConvertType(out[0], new(RegistryStruct0)).(*RegistryStruct0)
 
 	return out0, err
 
@@ -256,30 +256,30 @@ func (_Registry *RegistryCaller) GetCreatorByIndex(opts *bind.CallOpts, _hashInd
 
 // GetCreatorByIndex is a free data retrieval call binding the contract method 0x969033a4.
 //
-// Solidity: function getCreatorByIndex(bytes32 _hashIndex) view returns((address,string,string,uint8,uint256,address,address,uint8,uint256,bool,uint8))
-func (_Registry *RegistrySession) GetCreatorByIndex(_hashIndex [32]byte) (Struct0, error) {
+// Solidity: function getCreatorByIndex(bytes32 _hashIndex) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistrySession) GetCreatorByIndex(_hashIndex [32]byte) (RegistryStruct0, error) {
 	return _Registry.Contract.GetCreatorByIndex(&_Registry.CallOpts, _hashIndex)
 }
 
 // GetCreatorByIndex is a free data retrieval call binding the contract method 0x969033a4.
 //
-// Solidity: function getCreatorByIndex(bytes32 _hashIndex) view returns((address,string,string,uint8,uint256,address,address,uint8,uint256,bool,uint8))
-func (_Registry *RegistryCallerSession) GetCreatorByIndex(_hashIndex [32]byte) (Struct0, error) {
+// Solidity: function getCreatorByIndex(bytes32 _hashIndex) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistryCallerSession) GetCreatorByIndex(_hashIndex [32]byte) (RegistryStruct0, error) {
 	return _Registry.Contract.GetCreatorByIndex(&_Registry.CallOpts, _hashIndex)
 }
 
 // GetCreatorByName is a free data retrieval call binding the contract method 0x0aed6660.
 //
-// Solidity: function getCreatorByName(string _name) view returns((address,string,string,uint8,uint256,address,address,uint8,uint256,bool,uint8))
-func (_Registry *RegistryCaller) GetCreatorByName(opts *bind.CallOpts, _name string) (Struct0, error) {
+// Solidity: function getCreatorByName(string _name) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistryCaller) GetCreatorByName(opts *bind.CallOpts, _name string) (RegistryStruct0, error) {
 	var out []interface{}
 	err := _Registry.contract.Call(opts, &out, "getCreatorByName", _name)
 
 	if err != nil {
-		return *new(Struct0), err
+		return *new(RegistryStruct0), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(Struct0)).(*Struct0)
+	out0 := *abi.ConvertType(out[0], new(RegistryStruct0)).(*RegistryStruct0)
 
 	return out0, err
 
@@ -287,30 +287,30 @@ func (_Registry *RegistryCaller) GetCreatorByName(opts *bind.CallOpts, _name str
 
 // GetCreatorByName is a free data retrieval call binding the contract method 0x0aed6660.
 //
-// Solidity: function getCreatorByName(string _name) view returns((address,string,string,uint8,uint256,address,address,uint8,uint256,bool,uint8))
-func (_Registry *RegistrySession) GetCreatorByName(_name string) (Struct0, error) {
+// Solidity: function getCreatorByName(string _name) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistrySession) GetCreatorByName(_name string) (RegistryStruct0, error) {
 	return _Registry.Contract.GetCreatorByName(&_Registry.CallOpts, _name)
 }
 
 // GetCreatorByName is a free data retrieval call binding the contract method 0x0aed6660.
 //
-// Solidity: function getCreatorByName(string _name) view returns((address,string,string,uint8,uint256,address,address,uint8,uint256,bool,uint8))
-func (_Registry *RegistryCallerSession) GetCreatorByName(_name string) (Struct0, error) {
+// Solidity: function getCreatorByName(string _name) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistryCallerSession) GetCreatorByName(_name string) (RegistryStruct0, error) {
 	return _Registry.Contract.GetCreatorByName(&_Registry.CallOpts, _name)
 }
 
 // GetCreatorBySymbol is a free data retrieval call binding the contract method 0x775e3477.
 //
-// Solidity: function getCreatorBySymbol(string _symbol) view returns((address,string,string,uint8,uint256,address,address,uint8,uint256,bool,uint8))
-func (_Registry *RegistryCaller) GetCreatorBySymbol(opts *bind.CallOpts, _symbol string) (Struct0, error) {
+// Solidity: function getCreatorBySymbol(string _symbol) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistryCaller) GetCreatorBySymbol(opts *bind.CallOpts, _symbol string) (RegistryStruct0, error) {
 	var out []interface{}
 	err := _Registry.contract.Call(opts, &out, "getCreatorBySymbol", _symbol)
 
 	if err != nil {
-		return *new(Struct0), err
+		return *new(RegistryStruct0), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(Struct0)).(*Struct0)
+	out0 := *abi.ConvertType(out[0], new(RegistryStruct0)).(*RegistryStruct0)
 
 	return out0, err
 
@@ -318,30 +318,30 @@ func (_Registry *RegistryCaller) GetCreatorBySymbol(opts *bind.CallOpts, _symbol
 
 // GetCreatorBySymbol is a free data retrieval call binding the contract method 0x775e3477.
 //
-// Solidity: function getCreatorBySymbol(string _symbol) view returns((address,string,string,uint8,uint256,address,address,uint8,uint256,bool,uint8))
-func (_Registry *RegistrySession) GetCreatorBySymbol(_symbol string) (Struct0, error) {
+// Solidity: function getCreatorBySymbol(string _symbol) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistrySession) GetCreatorBySymbol(_symbol string) (RegistryStruct0, error) {
 	return _Registry.Contract.GetCreatorBySymbol(&_Registry.CallOpts, _symbol)
 }
 
 // GetCreatorBySymbol is a free data retrieval call binding the contract method 0x775e3477.
 //
-// Solidity: function getCreatorBySymbol(string _symbol) view returns((address,string,string,uint8,uint256,address,address,uint8,uint256,bool,uint8))
-func (_Registry *RegistryCallerSession) GetCreatorBySymbol(_symbol string) (Struct0, error) {
+// Solidity: function getCreatorBySymbol(string _symbol) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistryCallerSession) GetCreatorBySymbol(_symbol string) (RegistryStruct0, error) {
 	return _Registry.Contract.GetCreatorBySymbol(&_Registry.CallOpts, _symbol)
 }
 
 // GetCreatorReferralByIndex is a free data retrieval call binding the contract method 0x05e1ac7b.
 //
 // Solidity: function getCreatorReferralByIndex(bytes32 _hashIndex) view returns((address,uint8))
-func (_Registry *RegistryCaller) GetCreatorReferralByIndex(opts *bind.CallOpts, _hashIndex [32]byte) (Struct1, error) {
+func (_Registry *RegistryCaller) GetCreatorReferralByIndex(opts *bind.CallOpts, _hashIndex [32]byte) (RegistryStruct1, error) {
 	var out []interface{}
 	err := _Registry.contract.Call(opts, &out, "getCreatorReferralByIndex", _hashIndex)
 
 	if err != nil {
-		return *new(Struct1), err
+		return *new(RegistryStruct1), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new(Struct1)).(*Struct1)
+	out0 := *abi.ConvertType(out[0], new(RegistryStruct1)).(*RegistryStruct1)
 
 	return out0, err
 
@@ -350,14 +350,14 @@ func (_Registry *RegistryCaller) GetCreatorReferralByIndex(opts *bind.CallOpts, 
 // GetCreatorReferralByIndex is a free data retrieval call binding the contract method 0x05e1ac7b.
 //
 // Solidity: function getCreatorReferralByIndex(bytes32 _hashIndex) view returns((address,uint8))
-func (_Registry *RegistrySession) GetCreatorReferralByIndex(_hashIndex [32]byte) (Struct1, error) {
+func (_Registry *RegistrySession) GetCreatorReferralByIndex(_hashIndex [32]byte) (RegistryStruct1, error) {
 	return _Registry.Contract.GetCreatorReferralByIndex(&_Registry.CallOpts, _hashIndex)
 }
 
 // GetCreatorReferralByIndex is a free data retrieval call binding the contract method 0x05e1ac7b.
 //
 // Solidity: function getCreatorReferralByIndex(bytes32 _hashIndex) view returns((address,uint8))
-func (_Registry *RegistryCallerSession) GetCreatorReferralByIndex(_hashIndex [32]byte) (Struct1, error) {
+func (_Registry *RegistryCallerSession) GetCreatorReferralByIndex(_hashIndex [32]byte) (RegistryStruct1, error) {
 	return _Registry.Contract.GetCreatorReferralByIndex(&_Registry.CallOpts, _hashIndex)
 }
 
@@ -423,6 +423,37 @@ func (_Registry *RegistryCallerSession) GetIndexBySymbol(_symbol string) ([32]by
 	return _Registry.Contract.GetIndexBySymbol(&_Registry.CallOpts, _symbol)
 }
 
+// LegacyProposals is a free data retrieval call binding the contract method 0x3ba09f13.
+//
+// Solidity: function legacyProposals(string _name) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistryCaller) LegacyProposals(opts *bind.CallOpts, _name string) (RegistryStruct0, error) {
+	var out []interface{}
+	err := _Registry.contract.Call(opts, &out, "legacyProposals", _name)
+
+	if err != nil {
+		return *new(RegistryStruct0), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(RegistryStruct0)).(*RegistryStruct0)
+
+	return out0, err
+
+}
+
+// LegacyProposals is a free data retrieval call binding the contract method 0x3ba09f13.
+//
+// Solidity: function legacyProposals(string _name) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistrySession) LegacyProposals(_name string) (RegistryStruct0, error) {
+	return _Registry.Contract.LegacyProposals(&_Registry.CallOpts, _name)
+}
+
+// LegacyProposals is a free data retrieval call binding the contract method 0x3ba09f13.
+//
+// Solidity: function legacyProposals(string _name) view returns((address,string,string,uint256,uint256,address,address,uint8,uint8,uint8,bool))
+func (_Registry *RegistryCallerSession) LegacyProposals(_name string) (RegistryStruct0, error) {
+	return _Registry.Contract.LegacyProposals(&_Registry.CallOpts, _name)
+}
+
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
 //
 // Solidity: function owner() view returns(address)
@@ -456,19 +487,19 @@ func (_Registry *RegistryCallerSession) Owner() (common.Address, error) {
 
 // Rolodex is a free data retrieval call binding the contract method 0x469dfdc1.
 //
-// Solidity: function rolodex(bytes32 ) view returns(address token, string name, string symbol, uint8 decimals, uint256 totalSupply, address proposer, address vestingBeneficiary, uint8 initialPercentage, uint256 vestingPeriodInDays, bool approved, uint8 initialPlatformPercentage)
+// Solidity: function rolodex(bytes32 ) view returns(address token, string name, string symbol, uint256 totalSupply, uint256 vestingPeriodInDays, address proposer, address vestingBeneficiary, uint8 initialPlatformPercentage, uint8 decimals, uint8 initialPercentage, bool approved)
 func (_Registry *RegistryCaller) Rolodex(opts *bind.CallOpts, arg0 [32]byte) (struct {
 	Token                     common.Address
 	Name                      string
 	Symbol                    string
-	Decimals                  uint8
 	TotalSupply               *big.Int
+	VestingPeriodInDays       *big.Int
 	Proposer                  common.Address
 	VestingBeneficiary        common.Address
-	InitialPercentage         uint8
-	VestingPeriodInDays       *big.Int
-	Approved                  bool
 	InitialPlatformPercentage uint8
+	Decimals                  uint8
+	InitialPercentage         uint8
+	Approved                  bool
 }, error) {
 	var out []interface{}
 	err := _Registry.contract.Call(opts, &out, "rolodex", arg0)
@@ -477,14 +508,14 @@ func (_Registry *RegistryCaller) Rolodex(opts *bind.CallOpts, arg0 [32]byte) (st
 		Token                     common.Address
 		Name                      string
 		Symbol                    string
-		Decimals                  uint8
 		TotalSupply               *big.Int
+		VestingPeriodInDays       *big.Int
 		Proposer                  common.Address
 		VestingBeneficiary        common.Address
-		InitialPercentage         uint8
-		VestingPeriodInDays       *big.Int
-		Approved                  bool
 		InitialPlatformPercentage uint8
+		Decimals                  uint8
+		InitialPercentage         uint8
+		Approved                  bool
 	})
 	if err != nil {
 		return *outstruct, err
@@ -493,14 +524,14 @@ func (_Registry *RegistryCaller) Rolodex(opts *bind.CallOpts, arg0 [32]byte) (st
 	outstruct.Token = *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
 	outstruct.Name = *abi.ConvertType(out[1], new(string)).(*string)
 	outstruct.Symbol = *abi.ConvertType(out[2], new(string)).(*string)
-	outstruct.Decimals = *abi.ConvertType(out[3], new(uint8)).(*uint8)
-	outstruct.TotalSupply = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.TotalSupply = *abi.ConvertType(out[3], new(*big.Int)).(**big.Int)
+	outstruct.VestingPeriodInDays = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
 	outstruct.Proposer = *abi.ConvertType(out[5], new(common.Address)).(*common.Address)
 	outstruct.VestingBeneficiary = *abi.ConvertType(out[6], new(common.Address)).(*common.Address)
-	outstruct.InitialPercentage = *abi.ConvertType(out[7], new(uint8)).(*uint8)
-	outstruct.VestingPeriodInDays = *abi.ConvertType(out[8], new(*big.Int)).(**big.Int)
-	outstruct.Approved = *abi.ConvertType(out[9], new(bool)).(*bool)
-	outstruct.InitialPlatformPercentage = *abi.ConvertType(out[10], new(uint8)).(*uint8)
+	outstruct.InitialPlatformPercentage = *abi.ConvertType(out[7], new(uint8)).(*uint8)
+	outstruct.Decimals = *abi.ConvertType(out[8], new(uint8)).(*uint8)
+	outstruct.InitialPercentage = *abi.ConvertType(out[9], new(uint8)).(*uint8)
+	outstruct.Approved = *abi.ConvertType(out[10], new(bool)).(*bool)
 
 	return *outstruct, err
 
@@ -508,38 +539,38 @@ func (_Registry *RegistryCaller) Rolodex(opts *bind.CallOpts, arg0 [32]byte) (st
 
 // Rolodex is a free data retrieval call binding the contract method 0x469dfdc1.
 //
-// Solidity: function rolodex(bytes32 ) view returns(address token, string name, string symbol, uint8 decimals, uint256 totalSupply, address proposer, address vestingBeneficiary, uint8 initialPercentage, uint256 vestingPeriodInDays, bool approved, uint8 initialPlatformPercentage)
+// Solidity: function rolodex(bytes32 ) view returns(address token, string name, string symbol, uint256 totalSupply, uint256 vestingPeriodInDays, address proposer, address vestingBeneficiary, uint8 initialPlatformPercentage, uint8 decimals, uint8 initialPercentage, bool approved)
 func (_Registry *RegistrySession) Rolodex(arg0 [32]byte) (struct {
 	Token                     common.Address
 	Name                      string
 	Symbol                    string
-	Decimals                  uint8
 	TotalSupply               *big.Int
+	VestingPeriodInDays       *big.Int
 	Proposer                  common.Address
 	VestingBeneficiary        common.Address
-	InitialPercentage         uint8
-	VestingPeriodInDays       *big.Int
-	Approved                  bool
 	InitialPlatformPercentage uint8
+	Decimals                  uint8
+	InitialPercentage         uint8
+	Approved                  bool
 }, error) {
 	return _Registry.Contract.Rolodex(&_Registry.CallOpts, arg0)
 }
 
 // Rolodex is a free data retrieval call binding the contract method 0x469dfdc1.
 //
-// Solidity: function rolodex(bytes32 ) view returns(address token, string name, string symbol, uint8 decimals, uint256 totalSupply, address proposer, address vestingBeneficiary, uint8 initialPercentage, uint256 vestingPeriodInDays, bool approved, uint8 initialPlatformPercentage)
+// Solidity: function rolodex(bytes32 ) view returns(address token, string name, string symbol, uint256 totalSupply, uint256 vestingPeriodInDays, address proposer, address vestingBeneficiary, uint8 initialPlatformPercentage, uint8 decimals, uint8 initialPercentage, bool approved)
 func (_Registry *RegistryCallerSession) Rolodex(arg0 [32]byte) (struct {
 	Token                     common.Address
 	Name                      string
 	Symbol                    string
-	Decimals                  uint8
 	TotalSupply               *big.Int
+	VestingPeriodInDays       *big.Int
 	Proposer                  common.Address
 	VestingBeneficiary        common.Address
-	InitialPercentage         uint8
-	VestingPeriodInDays       *big.Int
-	Approved                  bool
 	InitialPlatformPercentage uint8
+	Decimals                  uint8
+	InitialPercentage         uint8
+	Approved                  bool
 }, error) {
 	return _Registry.Contract.Rolodex(&_Registry.CallOpts, arg0)
 }
@@ -626,6 +657,27 @@ func (_Registry *RegistrySession) RenounceOwnership() (*types.Transaction, error
 // Solidity: function renounceOwnership() returns()
 func (_Registry *RegistryTransactorSession) RenounceOwnership() (*types.Transaction, error) {
 	return _Registry.Contract.RenounceOwnership(&_Registry.TransactOpts)
+}
+
+// SetLegacyRegistryAddress is a paid mutator transaction binding the contract method 0xdf79a53d.
+//
+// Solidity: function setLegacyRegistryAddress(address _legacyRegistry) returns()
+func (_Registry *RegistryTransactor) SetLegacyRegistryAddress(opts *bind.TransactOpts, _legacyRegistry common.Address) (*types.Transaction, error) {
+	return _Registry.contract.Transact(opts, "setLegacyRegistryAddress", _legacyRegistry)
+}
+
+// SetLegacyRegistryAddress is a paid mutator transaction binding the contract method 0xdf79a53d.
+//
+// Solidity: function setLegacyRegistryAddress(address _legacyRegistry) returns()
+func (_Registry *RegistrySession) SetLegacyRegistryAddress(_legacyRegistry common.Address) (*types.Transaction, error) {
+	return _Registry.Contract.SetLegacyRegistryAddress(&_Registry.TransactOpts, _legacyRegistry)
+}
+
+// SetLegacyRegistryAddress is a paid mutator transaction binding the contract method 0xdf79a53d.
+//
+// Solidity: function setLegacyRegistryAddress(address _legacyRegistry) returns()
+func (_Registry *RegistryTransactorSession) SetLegacyRegistryAddress(_legacyRegistry common.Address) (*types.Transaction, error) {
+	return _Registry.Contract.SetLegacyRegistryAddress(&_Registry.TransactOpts, _legacyRegistry)
 }
 
 // SubmitProposal is a paid mutator transaction binding the contract method 0xd490cb74.
