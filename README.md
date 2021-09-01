@@ -36,13 +36,15 @@ cp ../roll-smart-contracts/deploy/localhost/ERC20.abi            ./social-money/
 ```
 
 ```
-abigen --abi=./social-money/abi/Manager.abi           --pkg=manager --out=./social-money/contracts/Manager.go
-abigen --abi=./social-money/abi/Registry.abi          --pkg=registry --out=./social-money/contracts/Registry.go
-abigen --abi=./social-money/abi/TokenFactory.abi      --pkg=tokenFactory --out=./social-money/contracts/TokenFactory.go
-abigen --abi=./social-money/abi/TokenVesting.abi      --pkg=tokenVesting --out=./social-money/contracts/TokenVesting.go
-abigen --abi=./social-money/abi/SocialMoney.abi       --pkg=socialMoney --out=./social-money/contracts/SocialMoney.go
-abigen --abi=./social-money/abi/MultiSigWallet.abi    --pkg=multiSigWallet --out=./social-money/contracts/MultiSigWallet.go
-abigen --abi=./social-money/abi/ERC20.abi             --pkg=ERC20 --out=./social-money/contracts/ERC20.go
+/Users/aaiello/go/bin/abigen --abi=./social-money/abi/Manager.abi           --pkg=manager --out=./social-money/contracts/Manager.go
+
+/Users/aaiello/go/bin/abigen --bin=./social-money/abi/Manager.bin           --abi=./social-money/abi/Manager.abi           --pkg=manager --out=./social-money/contracts/Manager.go
+/Users/aaiello/go/bin/abigen --bin=./social-money/abi/Registry.bin          --abi=./social-money/abi/Registry.abi          --pkg=registry --out=./social-money/contracts/Registry.go
+/Users/aaiello/go/bin/abigen --bin=./social-money/abi/TokenFactory.bin      --abi=./social-money/abi/TokenFactory.abi      --pkg=tokenFactory --out=./social-money/contracts/TokenFactory.go
+/Users/aaiello/go/bin/abigen --bin=./social-money/abi/TokenVesting.bin      --abi=./social-money/abi/TokenVesting.abi      --pkg=tokenVesting --out=./social-money/contracts/TokenVesting.go
+/Users/aaiello/go/bin/abigen --bin=./social-money/abi/SocialMoney.bin       --abi=./social-money/abi/SocialMoney.abi       --pkg=socialMoney --out=./social-money/contracts/SocialMoney.go
+/Users/aaiello/go/bin/abigen --bin=./social-money/abi/MultiSigWallet.bin    --abi=./social-money/abi/MultiSigWallet.abi    --pkg=multiSigWallet --out=./social-money/contracts/MultiSigWallet.go
+/Users/aaiello/go/bin/abigen --bin=./social-money/abi/ERC20.bin             --abi=./social-money/abi/ERC20.abi             --pkg=ERC20 --out=./social-money/contracts/ERC20.go
 ```
 
 After generate the go files, update TokenVesting replacing Struct0 for TokenVestingStruct0 to avoid naming collision.
