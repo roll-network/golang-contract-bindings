@@ -14,7 +14,7 @@ Install abigen
 
 ```
 go get -u github.com/ethereum/go-ethereum
-cd $GOPATH/pkg/mod/github.com/ethereum/go-ethereum@v1.10.1
+cd $GOPATH/pkg/mod/github.com/ethereum/go-ethereum@v1.10.9
 make
 make devtools
 ```
