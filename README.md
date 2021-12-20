@@ -32,6 +32,7 @@ cp ../roll-smart-contracts/deploy/localhost/TokenVesting.abi     ./social-money/
 cp ../roll-smart-contracts/deploy/localhost/SocialMoney.abi      ./social-money/abi/SocialMoney.abi
 cp ../roll-smart-contracts/deploy/localhost/RollApprover.abi     ./social-money/abi/MultiSigWallet.abi
 cp ../roll-smart-contracts/deploy/localhost/ERC20.abi            ./social-money/abi/ERC20.abi
+cp ../roll-smart-contracts/deploy/localhost/Sablier.abi            ./social-money/abi/Sablier.abi
 
 ```
 
@@ -45,6 +46,8 @@ cp ../roll-smart-contracts/deploy/localhost/ERC20.abi            ./social-money/
 /Users/aaiello/go/bin/abigen --bin=./social-money/abi/SocialMoney.bin       --abi=./social-money/abi/SocialMoney.abi       --pkg=socialMoney --out=./social-money/contracts/SocialMoney.go
 /Users/aaiello/go/bin/abigen --bin=./social-money/abi/MultiSigWallet.bin    --abi=./social-money/abi/MultiSigWallet.abi    --pkg=multiSigWallet --out=./social-money/contracts/MultiSigWallet.go
 /Users/aaiello/go/bin/abigen --bin=./social-money/abi/ERC20.bin             --abi=./social-money/abi/ERC20.abi             --pkg=ERC20 --out=./social-money/contracts/ERC20.go
+/Users/aaiello/go/bin/abigen --bin=./social-money/abi/Sablier.bin           --abi=./social-money/abi/Sablier.abi           --pkg=sablier --out=./social-money/contracts/Sablier.go
+
 ```
 
 After generate the go files, update TokenVesting replacing Struct0 for TokenVestingStruct0 to avoid naming collision.
