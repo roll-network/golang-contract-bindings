@@ -37,7 +37,7 @@ type WithdrawalOrder struct {
 	Token      common.Address
 	Amount     *big.Int
 	Expiration *big.Int
-	Salt       *big.Int
+	Key        *big.Int
 }
 
 // WithdrawalSig is an auto generated low-level Go binding around an user-defined struct.
@@ -49,34 +49,12 @@ type WithdrawalSig struct {
 
 // WithdrawalMetaData contains all meta data concerning the Withdrawal contract.
 var WithdrawalMetaData = &bind.MetaData{
-	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pauseOperator_\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"CancelledOrder\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ExpiredOrder\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidCaller\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidOrder\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSigner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ProcessedOrder\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"CancelEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"WithdrawalEvent\",\"type\":\"event\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"}],\"internalType\":\"structWithdrawal.Order\",\"name\":\"order\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"internalType\":\"structWithdrawal.Sig\",\"name\":\"sig\",\"type\":\"tuple\"}],\"name\":\"cancel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"}],\"internalType\":\"structWithdrawal.Order\",\"name\":\"order\",\"type\":\"tuple\"}],\"name\":\"getCompletedKey\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes32\",\"name\":\"key\",\"type\":\"bytes32\"}],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"enumWithdrawal.OrderStatus\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pauseOperator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"value\",\"type\":\"bool\"}],\"name\":\"setAllowedSigner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pauseOperator_\",\"type\":\"address\"}],\"name\":\"setPauseOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"}],\"internalType\":\"structWithdrawal.Order\",\"name\":\"order\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"internalType\":\"structWithdrawal.Sig\",\"name\":\"sig\",\"type\":\"tuple\"}],\"name\":\"withdrawal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
-	Bin: "0x60806040523480156200001157600080fd5b5060405162001cd538038062001cd583398181016040528101906200003791906200019d565b60008060006101000a81548160ff0219169083151502179055506200007162000065620000b960201b60201c565b620000c160201b60201c565b80600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505062000222565b600033905090565b60008060019054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905081600060016101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b600081519050620001978162000208565b92915050565b600060208284031215620001b657620001b562000203565b5b6000620001c68482850162000186565b91505092915050565b6000620001dc82620001e3565b9050919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b600080fd5b6200021381620001cf565b81146200021f57600080fd5b50565b611aa380620002326000396000f3fe608060405234801561001057600080fd5b50600436106100cf5760003560e01c8063715018a61161008c578063a7678b1811610066578063a7678b18146101c8578063ebe73ca4146101e4578063f2fde38b14610200578063f9213fc81461021c576100cf565b8063715018a6146101965780638456cb59146101a05780638da5cb5b146101aa576100cf565b80631ad4aa42146100d45780633f4ba83a146100f057806346c368c2146100fa5780634afdcbde1461012a5780635c975abb146101485780635de28ae014610166575b600080fd5b6100ee60048036038101906100e99190611248565b610238565b005b6100f86102f8565b005b610114600480360381019061010f919061130f565b610389565b6040516101219190611670565b60405180910390f35b6101326103ab565b60405161013f919061154f565b60405180910390f35b6101506103d1565b60405161015d9190611655565b60405180910390f35b610180600480360381019061017b91906112e2565b6103e7565b60405161018d91906116d0565b60405180910390f35b61019e610411565b005b6101a8610499565b005b6101b261052a565b6040516101bf919061154f565b60405180910390f35b6101e260048036038101906101dd919061133c565b610553565b005b6101fe60048036038101906101f9919061133c565b61087d565b005b61021a60048036038101906102159190611248565b610aa1565b005b61023660048036038101906102319190611275565b610b99565b005b610240610c70565b73ffffffffffffffffffffffffffffffffffffffff1661025e61052a565b73ffffffffffffffffffffffffffffffffffffffff16146102b4576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016102ab9061174b565b60405180910390fd5b80600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461037f576040517f48f5c3ed00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b610387610c78565b565b60006103a48280360381019061039f919061137d565b610d19565b9050919050565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900460ff16905090565b60006001600083815260200190815260200160002060009054906101000a900460ff169050919050565b610419610c70565b73ffffffffffffffffffffffffffffffffffffffff1661043761052a565b73ffffffffffffffffffffffffffffffffffffffff161461048d576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016104849061174b565b60405180910390fd5b6104976000610d4d565b565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610520576040517f48f5c3ed00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b610528610e12565b565b60008060019054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b61055b6103d1565b1561059b576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016105929061172b565b60405180910390fd5b6105a58282610eb4565b428260a00135116105e2576040517f45fa2d0600000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60006105fd838036038101906105f8919061137d565b610d19565b90506001600281111561061357610612611875565b5b6001600083815260200190815260200160002060009054906101000a900460ff16600281111561064657610645611875565b5b141561067e576040517f1f368c2d00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60028081111561069157610690611875565b5b6001600083815260200190815260200160002060009054906101000a900460ff1660028111156106c4576106c3611875565b5b14156106fc576040517f228f2fb200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600180600083815260200190815260200160002060006101000a81548160ff0219169083600281111561073257610731611875565b5b021790555082606001602081019061074a9190611248565b73ffffffffffffffffffffffffffffffffffffffff166323b872dd8460200160208101906107789190611248565b85604001602081019061078b9190611248565b86608001356040518463ffffffff1660e01b81526004016107ae9392919061161e565b602060405180830381600087803b1580156107c857600080fd5b505af11580156107dc573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061080091906112b5565b507fac1b5146d64cce65efba97457b49a2d72f9be2601587498d2be35fc679d229e18360000160208101906108359190611248565b8460400160208101906108489190611248565b85606001602081019061085b9190611248565b866080013560405161087094939291906115d9565b60405180910390a1505050565b6108856103d1565b156108c5576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004016108bc9061172b565b60405180910390fd5b6108cf8282610eb4565b60006108ea838036038101906108e5919061137d565b610d19565b905060016002811115610900576108ff611875565b5b6001600083815260200190815260200160002060009054906101000a900460ff16600281111561093357610932611875565b5b141561096b576040517f1f368c2d00000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60028081111561097e5761097d611875565b5b6001600083815260200190815260200160002060009054906101000a900460ff1660028111156109b1576109b0611875565b5b14156109e9576040517f228f2fb200000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b60026001600083815260200190815260200160002060006101000a81548160ff02191690836002811115610a2057610a1f611875565b5b02179055507fef4a2fffd8d48cda4f0eb1d1ce2a38ea8b52f8751c3897c5eccce16f1d18f234836000016020810190610a599190611248565b846040016020810190610a6c9190611248565b856060016020810190610a7f9190611248565b8660800135604051610a9494939291906115d9565b60405180910390a1505050565b610aa9610c70565b73ffffffffffffffffffffffffffffffffffffffff16610ac761052a565b73ffffffffffffffffffffffffffffffffffffffff1614610b1d576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b149061174b565b60405180910390fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415610b8d576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610b849061170b565b60405180910390fd5b610b9681610d4d565b50565b610ba1610c70565b73ffffffffffffffffffffffffffffffffffffffff16610bbf61052a565b73ffffffffffffffffffffffffffffffffffffffff1614610c15576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610c0c9061174b565b60405180910390fd5b80600260008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff0219169083151502179055505050565b600033905090565b610c806103d1565b610cbf576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610cb6906116eb565b60405180910390fd5b60008060006101000a81548160ff0219169083151502179055507f5db9ee0a495bf2e6ff9c91a7834c1ba4fdd244a5e8aa4e537bd38aeae4b073aa610d02610c70565b604051610d0f919061154f565b60405180910390a1565b60008160c00151604051602001610d309190611534565b604051602081830303815290604052805190602001209050919050565b60008060019054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905081600060016101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055508173ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a35050565b610e1a6103d1565b15610e5a576040517f08c379a0000000000000000000000000000000000000000000000000000000008152600401610e519061172b565b60405180910390fd5b60016000806101000a81548160ff0219169083151502179055507f62e78cea01bee320cd4e420270b5ea74000d11b0c9f74754ebdbfc544b05a258610e9d610c70565b604051610eaa919061154f565b60405180910390a1565b6000826000016020810190610ec99190611248565b836020016020810190610edc9190611248565b846040016020810190610eef9190611248565b856060016020810190610f029190611248565b86608001358760a001358860c00135604051602001610f27979695949392919061156a565b604051602081830303815290604052805190602001209050600081604051602001610f52919061150e565b6040516020818303038152906040528051906020012090506000600182856000016020810190610f8291906113aa565b8660200135876040013560405160008152602001604052604051610fa9949392919061168b565b6020604051602081039080840390855afa158015610fcb573d6000803e3d6000fd5b5050506020604051035190508073ffffffffffffffffffffffffffffffffffffffff168560000160208101906110019190611248565b73ffffffffffffffffffffffffffffffffffffffff161461104e576040517faf61069300000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b600260008273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff166110d1576040517f815e1d6400000000000000000000000000000000000000000000000000000000815260040160405180910390fd5b5050505050565b6000813590506110e7816119fa565b92915050565b6000813590506110fc81611a11565b92915050565b60008151905061111181611a11565b92915050565b60008135905061112681611a28565b92915050565b600060e08284031215611142576111416118d3565b5b81905092915050565b600060e08284031215611161576111606118d8565b5b61116b60e061176b565b9050600061117b848285016110d8565b600083015250602061118f848285016110d8565b60208301525060406111a3848285016110d8565b60408301525060606111b7848285016110d8565b60608301525060806111cb8482850161121e565b60808301525060a06111df8482850161121e565b60a08301525060c06111f38482850161121e565b60c08301525092915050565b600060608284031215611215576112146118d3565b5b81905092915050565b60008135905061122d81611a3f565b92915050565b60008135905061124281611a56565b92915050565b60006020828403121561125e5761125d6118dd565b5b600061126c848285016110d8565b91505092915050565b6000806040838503121561128c5761128b6118dd565b5b600061129a858286016110d8565b92505060206112ab858286016110ed565b9150509250929050565b6000602082840312156112cb576112ca6118dd565b5b60006112d984828501611102565b91505092915050565b6000602082840312156112f8576112f76118dd565b5b600061130684828501611117565b91505092915050565b600060e08284031215611325576113246118dd565b5b60006113338482850161112c565b91505092915050565b6000806101408385031215611354576113536118dd565b5b60006113628582860161112c565b92505060e0611373858286016111ff565b9150509250929050565b600060e08284031215611393576113926118dd565b5b60006113a18482850161114b565b91505092915050565b6000602082840312156113c0576113bf6118dd565b5b60006113ce84828501611233565b91505092915050565b6113e0816117ac565b82525050565b6113ef816117be565b82525050565b6113fe816117ca565b82525050565b611415611410826117ca565b611861565b82525050565b6114248161181e565b82525050565b6000611437601483611790565b9150611442826118f3565b602082019050919050565b600061145a601c836117a1565b91506114658261191c565b601c82019050919050565b600061147d602683611790565b915061148882611945565b604082019050919050565b60006114a0601083611790565b91506114ab82611994565b602082019050919050565b60006114c3602083611790565b91506114ce826119bd565b602082019050919050565b6114e281611807565b82525050565b6114f96114f482611807565b61186b565b82525050565b61150881611811565b82525050565b60006115198261144d565b91506115258284611404565b60208201915081905092915050565b600061154082846114e8565b60208201915081905092915050565b600060208201905061156460008301846113d7565b92915050565b600060e08201905061157f600083018a6113d7565b61158c60208301896113d7565b61159960408301886113d7565b6115a660608301876113d7565b6115b360808301866114d9565b6115c060a08301856114d9565b6115cd60c08301846114d9565b98975050505050505050565b60006080820190506115ee60008301876113d7565b6115fb60208301866113d7565b61160860408301856113d7565b61161560608301846114d9565b95945050505050565b600060608201905061163360008301866113d7565b61164060208301856113d7565b61164d60408301846114d9565b949350505050565b600060208201905061166a60008301846113e6565b92915050565b600060208201905061168560008301846113f5565b92915050565b60006080820190506116a060008301876113f5565b6116ad60208301866114ff565b6116ba60408301856113f5565b6116c760608301846113f5565b95945050505050565b60006020820190506116e5600083018461141b565b92915050565b600060208201905081810360008301526117048161142a565b9050919050565b6000602082019050818103600083015261172481611470565b9050919050565b6000602082019050818103600083015261174481611493565b9050919050565b60006020820190508181036000830152611764816114b6565b9050919050565b6000611775611786565b90506117818282611830565b919050565b6000604051905090565b600082825260208201905092915050565b600081905092915050565b60006117b7826117e7565b9050919050565b60008115159050919050565b6000819050919050565b60008190506117e2826119e6565b919050565b600073ffffffffffffffffffffffffffffffffffffffff82169050919050565b6000819050919050565b600060ff82169050919050565b6000611829826117d4565b9050919050565b611839826118e2565b810181811067ffffffffffffffff82111715611858576118576118a4565b5b80604052505050565b6000819050919050565b6000819050919050565b7f4e487b7100000000000000000000000000000000000000000000000000000000600052602160045260246000fd5b7f4e487b7100000000000000000000000000000000000000000000000000000000600052604160045260246000fd5b600080fd5b600080fd5b600080fd5b6000601f19601f8301169050919050565b7f5061757361626c653a206e6f7420706175736564000000000000000000000000600082015250565b7f19457468657265756d205369676e6564204d6573736167653a0a333200000000600082015250565b7f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160008201527f6464726573730000000000000000000000000000000000000000000000000000602082015250565b7f5061757361626c653a2070617573656400000000000000000000000000000000600082015250565b7f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e6572600082015250565b600381106119f7576119f6611875565b5b50565b611a03816117ac565b8114611a0e57600080fd5b50565b611a1a816117be565b8114611a2557600080fd5b50565b611a31816117ca565b8114611a3c57600080fd5b50565b611a4881611807565b8114611a5357600080fd5b50565b611a5f81611811565b8114611a6a57600080fd5b5056fea26469706673582212203627df57137167117a8b6a86b57f3b67720bf4ac4c891270e8cd48d16778427264736f6c63430008070033",
+	ABI: "[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pauseOperator_\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"inputs\":[],\"name\":\"CancelledOrder\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ExpiredOrder\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidCaller\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidOrder\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"InvalidSigner\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"ProcessedOrder\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"key\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"CancelEvent\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Paused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"Unpaused\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"oldOperator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"newOperator\",\"type\":\"address\"}],\"name\":\"UpdatePauseOperator\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"value\",\"type\":\"bool\"}],\"name\":\"UpdateSigner\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"key\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"WithdrawalEvent\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"allowedSigners\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"key\",\"type\":\"uint256\"}],\"internalType\":\"structWithdrawal.Order\",\"name\":\"order\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"internalType\":\"structWithdrawal.Sig\",\"name\":\"sig\",\"type\":\"tuple\"}],\"name\":\"cancel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"key\",\"type\":\"uint256\"}],\"internalType\":\"structWithdrawal.Order\",\"name\":\"order\",\"type\":\"tuple\"}],\"name\":\"getCompletedKey\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"key\",\"type\":\"uint256\"}],\"name\":\"getOrder\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"key\",\"type\":\"uint256\"}],\"internalType\":\"structWithdrawal.Order\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"key\",\"type\":\"uint256\"}],\"name\":\"getStatus\",\"outputs\":[{\"internalType\":\"enumWithdrawal.OrderStatus\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"orders\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"key\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"pauseOperator\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"paused\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"value\",\"type\":\"bool\"}],\"name\":\"setAllowedSigner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pauseOperator_\",\"type\":\"address\"}],\"name\":\"setPauseOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"unpause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"signer\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"holder\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expiration\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"key\",\"type\":\"uint256\"}],\"internalType\":\"structWithdrawal.Order\",\"name\":\"order\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"internalType\":\"structWithdrawal.Sig\",\"name\":\"sig\",\"type\":\"tuple\"}],\"name\":\"withdrawal\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}]",
 }
 
 // WithdrawalABI is the input ABI used to generate the binding from.
 // Deprecated: Use WithdrawalMetaData.ABI instead.
 var WithdrawalABI = WithdrawalMetaData.ABI
-
-// WithdrawalBin is the compiled bytecode used for deploying new contracts.
-// Deprecated: Use WithdrawalMetaData.Bin instead.
-var WithdrawalBin = WithdrawalMetaData.Bin
-
-// DeployWithdrawal deploys a new Ethereum contract, binding an instance of Withdrawal to it.
-func DeployWithdrawal(auth *bind.TransactOpts, backend bind.ContractBackend, pauseOperator_ common.Address) (common.Address, *types.Transaction, *Withdrawal, error) {
-	parsed, err := WithdrawalMetaData.GetAbi()
-	if err != nil {
-		return common.Address{}, nil, nil, err
-	}
-	if parsed == nil {
-		return common.Address{}, nil, nil, errors.New("GetABI returned nil")
-	}
-
-	address, tx, contract, err := bind.DeployContract(auth, *parsed, common.FromHex(WithdrawalBin), backend, pauseOperator_)
-	if err != nil {
-		return common.Address{}, nil, nil, err
-	}
-	return address, tx, &Withdrawal{WithdrawalCaller: WithdrawalCaller{contract: contract}, WithdrawalTransactor: WithdrawalTransactor{contract: contract}, WithdrawalFilterer: WithdrawalFilterer{contract: contract}}, nil
-}
 
 // Withdrawal is an auto generated Go binding around an Ethereum contract.
 type Withdrawal struct {
@@ -220,18 +198,49 @@ func (_Withdrawal *WithdrawalTransactorRaw) Transact(opts *bind.TransactOpts, me
 	return _Withdrawal.Contract.contract.Transact(opts, method, params...)
 }
 
+// AllowedSigners is a free data retrieval call binding the contract method 0xf8b4d864.
+//
+// Solidity: function allowedSigners(address ) view returns(bool)
+func (_Withdrawal *WithdrawalCaller) AllowedSigners(opts *bind.CallOpts, arg0 common.Address) (bool, error) {
+	var out []interface{}
+	err := _Withdrawal.contract.Call(opts, &out, "allowedSigners", arg0)
+
+	if err != nil {
+		return *new(bool), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(bool)).(*bool)
+
+	return out0, err
+
+}
+
+// AllowedSigners is a free data retrieval call binding the contract method 0xf8b4d864.
+//
+// Solidity: function allowedSigners(address ) view returns(bool)
+func (_Withdrawal *WithdrawalSession) AllowedSigners(arg0 common.Address) (bool, error) {
+	return _Withdrawal.Contract.AllowedSigners(&_Withdrawal.CallOpts, arg0)
+}
+
+// AllowedSigners is a free data retrieval call binding the contract method 0xf8b4d864.
+//
+// Solidity: function allowedSigners(address ) view returns(bool)
+func (_Withdrawal *WithdrawalCallerSession) AllowedSigners(arg0 common.Address) (bool, error) {
+	return _Withdrawal.Contract.AllowedSigners(&_Withdrawal.CallOpts, arg0)
+}
+
 // GetCompletedKey is a free data retrieval call binding the contract method 0x46c368c2.
 //
-// Solidity: function getCompletedKey((address,address,address,address,uint256,uint256,uint256) order) pure returns(bytes32)
-func (_Withdrawal *WithdrawalCaller) GetCompletedKey(opts *bind.CallOpts, order WithdrawalOrder) ([32]byte, error) {
+// Solidity: function getCompletedKey((address,address,address,address,uint256,uint256,uint256) order) pure returns(uint256)
+func (_Withdrawal *WithdrawalCaller) GetCompletedKey(opts *bind.CallOpts, order WithdrawalOrder) (*big.Int, error) {
 	var out []interface{}
 	err := _Withdrawal.contract.Call(opts, &out, "getCompletedKey", order)
 
 	if err != nil {
-		return *new([32]byte), err
+		return *new(*big.Int), err
 	}
 
-	out0 := *abi.ConvertType(out[0], new([32]byte)).(*[32]byte)
+	out0 := *abi.ConvertType(out[0], new(*big.Int)).(**big.Int)
 
 	return out0, err
 
@@ -239,22 +248,53 @@ func (_Withdrawal *WithdrawalCaller) GetCompletedKey(opts *bind.CallOpts, order 
 
 // GetCompletedKey is a free data retrieval call binding the contract method 0x46c368c2.
 //
-// Solidity: function getCompletedKey((address,address,address,address,uint256,uint256,uint256) order) pure returns(bytes32)
-func (_Withdrawal *WithdrawalSession) GetCompletedKey(order WithdrawalOrder) ([32]byte, error) {
+// Solidity: function getCompletedKey((address,address,address,address,uint256,uint256,uint256) order) pure returns(uint256)
+func (_Withdrawal *WithdrawalSession) GetCompletedKey(order WithdrawalOrder) (*big.Int, error) {
 	return _Withdrawal.Contract.GetCompletedKey(&_Withdrawal.CallOpts, order)
 }
 
 // GetCompletedKey is a free data retrieval call binding the contract method 0x46c368c2.
 //
-// Solidity: function getCompletedKey((address,address,address,address,uint256,uint256,uint256) order) pure returns(bytes32)
-func (_Withdrawal *WithdrawalCallerSession) GetCompletedKey(order WithdrawalOrder) ([32]byte, error) {
+// Solidity: function getCompletedKey((address,address,address,address,uint256,uint256,uint256) order) pure returns(uint256)
+func (_Withdrawal *WithdrawalCallerSession) GetCompletedKey(order WithdrawalOrder) (*big.Int, error) {
 	return _Withdrawal.Contract.GetCompletedKey(&_Withdrawal.CallOpts, order)
 }
 
-// GetStatus is a free data retrieval call binding the contract method 0x5de28ae0.
+// GetOrder is a free data retrieval call binding the contract method 0xd09ef241.
 //
-// Solidity: function getStatus(bytes32 key) view returns(uint8)
-func (_Withdrawal *WithdrawalCaller) GetStatus(opts *bind.CallOpts, key [32]byte) (uint8, error) {
+// Solidity: function getOrder(uint256 key) view returns((address,address,address,address,uint256,uint256,uint256))
+func (_Withdrawal *WithdrawalCaller) GetOrder(opts *bind.CallOpts, key *big.Int) (WithdrawalOrder, error) {
+	var out []interface{}
+	err := _Withdrawal.contract.Call(opts, &out, "getOrder", key)
+
+	if err != nil {
+		return *new(WithdrawalOrder), err
+	}
+
+	out0 := *abi.ConvertType(out[0], new(WithdrawalOrder)).(*WithdrawalOrder)
+
+	return out0, err
+
+}
+
+// GetOrder is a free data retrieval call binding the contract method 0xd09ef241.
+//
+// Solidity: function getOrder(uint256 key) view returns((address,address,address,address,uint256,uint256,uint256))
+func (_Withdrawal *WithdrawalSession) GetOrder(key *big.Int) (WithdrawalOrder, error) {
+	return _Withdrawal.Contract.GetOrder(&_Withdrawal.CallOpts, key)
+}
+
+// GetOrder is a free data retrieval call binding the contract method 0xd09ef241.
+//
+// Solidity: function getOrder(uint256 key) view returns((address,address,address,address,uint256,uint256,uint256))
+func (_Withdrawal *WithdrawalCallerSession) GetOrder(key *big.Int) (WithdrawalOrder, error) {
+	return _Withdrawal.Contract.GetOrder(&_Withdrawal.CallOpts, key)
+}
+
+// GetStatus is a free data retrieval call binding the contract method 0x5c622a0e.
+//
+// Solidity: function getStatus(uint256 key) view returns(uint8)
+func (_Withdrawal *WithdrawalCaller) GetStatus(opts *bind.CallOpts, key *big.Int) (uint8, error) {
 	var out []interface{}
 	err := _Withdrawal.contract.Call(opts, &out, "getStatus", key)
 
@@ -268,18 +308,88 @@ func (_Withdrawal *WithdrawalCaller) GetStatus(opts *bind.CallOpts, key [32]byte
 
 }
 
-// GetStatus is a free data retrieval call binding the contract method 0x5de28ae0.
+// GetStatus is a free data retrieval call binding the contract method 0x5c622a0e.
 //
-// Solidity: function getStatus(bytes32 key) view returns(uint8)
-func (_Withdrawal *WithdrawalSession) GetStatus(key [32]byte) (uint8, error) {
+// Solidity: function getStatus(uint256 key) view returns(uint8)
+func (_Withdrawal *WithdrawalSession) GetStatus(key *big.Int) (uint8, error) {
 	return _Withdrawal.Contract.GetStatus(&_Withdrawal.CallOpts, key)
 }
 
-// GetStatus is a free data retrieval call binding the contract method 0x5de28ae0.
+// GetStatus is a free data retrieval call binding the contract method 0x5c622a0e.
 //
-// Solidity: function getStatus(bytes32 key) view returns(uint8)
-func (_Withdrawal *WithdrawalCallerSession) GetStatus(key [32]byte) (uint8, error) {
+// Solidity: function getStatus(uint256 key) view returns(uint8)
+func (_Withdrawal *WithdrawalCallerSession) GetStatus(key *big.Int) (uint8, error) {
 	return _Withdrawal.Contract.GetStatus(&_Withdrawal.CallOpts, key)
+}
+
+// Orders is a free data retrieval call binding the contract method 0xa85c38ef.
+//
+// Solidity: function orders(uint256 ) view returns(address signer, address holder, address to, address token, uint256 amount, uint256 expiration, uint256 key)
+func (_Withdrawal *WithdrawalCaller) Orders(opts *bind.CallOpts, arg0 *big.Int) (struct {
+	Signer     common.Address
+	Holder     common.Address
+	To         common.Address
+	Token      common.Address
+	Amount     *big.Int
+	Expiration *big.Int
+	Key        *big.Int
+}, error) {
+	var out []interface{}
+	err := _Withdrawal.contract.Call(opts, &out, "orders", arg0)
+
+	outstruct := new(struct {
+		Signer     common.Address
+		Holder     common.Address
+		To         common.Address
+		Token      common.Address
+		Amount     *big.Int
+		Expiration *big.Int
+		Key        *big.Int
+	})
+	if err != nil {
+		return *outstruct, err
+	}
+
+	outstruct.Signer = *abi.ConvertType(out[0], new(common.Address)).(*common.Address)
+	outstruct.Holder = *abi.ConvertType(out[1], new(common.Address)).(*common.Address)
+	outstruct.To = *abi.ConvertType(out[2], new(common.Address)).(*common.Address)
+	outstruct.Token = *abi.ConvertType(out[3], new(common.Address)).(*common.Address)
+	outstruct.Amount = *abi.ConvertType(out[4], new(*big.Int)).(**big.Int)
+	outstruct.Expiration = *abi.ConvertType(out[5], new(*big.Int)).(**big.Int)
+	outstruct.Key = *abi.ConvertType(out[6], new(*big.Int)).(**big.Int)
+
+	return *outstruct, err
+
+}
+
+// Orders is a free data retrieval call binding the contract method 0xa85c38ef.
+//
+// Solidity: function orders(uint256 ) view returns(address signer, address holder, address to, address token, uint256 amount, uint256 expiration, uint256 key)
+func (_Withdrawal *WithdrawalSession) Orders(arg0 *big.Int) (struct {
+	Signer     common.Address
+	Holder     common.Address
+	To         common.Address
+	Token      common.Address
+	Amount     *big.Int
+	Expiration *big.Int
+	Key        *big.Int
+}, error) {
+	return _Withdrawal.Contract.Orders(&_Withdrawal.CallOpts, arg0)
+}
+
+// Orders is a free data retrieval call binding the contract method 0xa85c38ef.
+//
+// Solidity: function orders(uint256 ) view returns(address signer, address holder, address to, address token, uint256 amount, uint256 expiration, uint256 key)
+func (_Withdrawal *WithdrawalCallerSession) Orders(arg0 *big.Int) (struct {
+	Signer     common.Address
+	Holder     common.Address
+	To         common.Address
+	Token      common.Address
+	Amount     *big.Int
+	Expiration *big.Int
+	Key        *big.Int
+}, error) {
+	return _Withdrawal.Contract.Orders(&_Withdrawal.CallOpts, arg0)
 }
 
 // Owner is a free data retrieval call binding the contract method 0x8da5cb5b.
@@ -612,6 +722,7 @@ func (it *WithdrawalCancelEventIterator) Close() error {
 
 // WithdrawalCancelEvent represents a CancelEvent event raised by the Withdrawal contract.
 type WithdrawalCancelEvent struct {
+	Key    *big.Int
 	Signer common.Address
 	To     common.Address
 	Token  common.Address
@@ -619,24 +730,44 @@ type WithdrawalCancelEvent struct {
 	Raw    types.Log // Blockchain specific contextual infos
 }
 
-// FilterCancelEvent is a free log retrieval operation binding the contract event 0xef4a2fffd8d48cda4f0eb1d1ce2a38ea8b52f8751c3897c5eccce16f1d18f234.
+// FilterCancelEvent is a free log retrieval operation binding the contract event 0x18351c9e93b203d861f9bb52616afdc76a08cf3bb7c23d5d7a9f742fd2f309c1.
 //
-// Solidity: event CancelEvent(address signer, address to, address token, uint256 amount)
-func (_Withdrawal *WithdrawalFilterer) FilterCancelEvent(opts *bind.FilterOpts) (*WithdrawalCancelEventIterator, error) {
+// Solidity: event CancelEvent(uint256 indexed key, address signer, address to, address indexed token, uint256 amount)
+func (_Withdrawal *WithdrawalFilterer) FilterCancelEvent(opts *bind.FilterOpts, key []*big.Int, token []common.Address) (*WithdrawalCancelEventIterator, error) {
 
-	logs, sub, err := _Withdrawal.contract.FilterLogs(opts, "CancelEvent")
+	var keyRule []interface{}
+	for _, keyItem := range key {
+		keyRule = append(keyRule, keyItem)
+	}
+
+	var tokenRule []interface{}
+	for _, tokenItem := range token {
+		tokenRule = append(tokenRule, tokenItem)
+	}
+
+	logs, sub, err := _Withdrawal.contract.FilterLogs(opts, "CancelEvent", keyRule, tokenRule)
 	if err != nil {
 		return nil, err
 	}
 	return &WithdrawalCancelEventIterator{contract: _Withdrawal.contract, event: "CancelEvent", logs: logs, sub: sub}, nil
 }
 
-// WatchCancelEvent is a free log subscription operation binding the contract event 0xef4a2fffd8d48cda4f0eb1d1ce2a38ea8b52f8751c3897c5eccce16f1d18f234.
+// WatchCancelEvent is a free log subscription operation binding the contract event 0x18351c9e93b203d861f9bb52616afdc76a08cf3bb7c23d5d7a9f742fd2f309c1.
 //
-// Solidity: event CancelEvent(address signer, address to, address token, uint256 amount)
-func (_Withdrawal *WithdrawalFilterer) WatchCancelEvent(opts *bind.WatchOpts, sink chan<- *WithdrawalCancelEvent) (event.Subscription, error) {
+// Solidity: event CancelEvent(uint256 indexed key, address signer, address to, address indexed token, uint256 amount)
+func (_Withdrawal *WithdrawalFilterer) WatchCancelEvent(opts *bind.WatchOpts, sink chan<- *WithdrawalCancelEvent, key []*big.Int, token []common.Address) (event.Subscription, error) {
 
-	logs, sub, err := _Withdrawal.contract.WatchLogs(opts, "CancelEvent")
+	var keyRule []interface{}
+	for _, keyItem := range key {
+		keyRule = append(keyRule, keyItem)
+	}
+
+	var tokenRule []interface{}
+	for _, tokenItem := range token {
+		tokenRule = append(tokenRule, tokenItem)
+	}
+
+	logs, sub, err := _Withdrawal.contract.WatchLogs(opts, "CancelEvent", keyRule, tokenRule)
 	if err != nil {
 		return nil, err
 	}
@@ -668,9 +799,9 @@ func (_Withdrawal *WithdrawalFilterer) WatchCancelEvent(opts *bind.WatchOpts, si
 	}), nil
 }
 
-// ParseCancelEvent is a log parse operation binding the contract event 0xef4a2fffd8d48cda4f0eb1d1ce2a38ea8b52f8751c3897c5eccce16f1d18f234.
+// ParseCancelEvent is a log parse operation binding the contract event 0x18351c9e93b203d861f9bb52616afdc76a08cf3bb7c23d5d7a9f742fd2f309c1.
 //
-// Solidity: event CancelEvent(address signer, address to, address token, uint256 amount)
+// Solidity: event CancelEvent(uint256 indexed key, address signer, address to, address indexed token, uint256 amount)
 func (_Withdrawal *WithdrawalFilterer) ParseCancelEvent(log types.Log) (*WithdrawalCancelEvent, error) {
 	event := new(WithdrawalCancelEvent)
 	if err := _Withdrawal.contract.UnpackLog(event, "CancelEvent", log); err != nil {
@@ -1101,6 +1232,276 @@ func (_Withdrawal *WithdrawalFilterer) ParseUnpaused(log types.Log) (*Withdrawal
 	return event, nil
 }
 
+// WithdrawalUpdatePauseOperatorIterator is returned from FilterUpdatePauseOperator and is used to iterate over the raw logs and unpacked data for UpdatePauseOperator events raised by the Withdrawal contract.
+type WithdrawalUpdatePauseOperatorIterator struct {
+	Event *WithdrawalUpdatePauseOperator // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *WithdrawalUpdatePauseOperatorIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(WithdrawalUpdatePauseOperator)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(WithdrawalUpdatePauseOperator)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *WithdrawalUpdatePauseOperatorIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *WithdrawalUpdatePauseOperatorIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// WithdrawalUpdatePauseOperator represents a UpdatePauseOperator event raised by the Withdrawal contract.
+type WithdrawalUpdatePauseOperator struct {
+	OldOperator common.Address
+	NewOperator common.Address
+	Raw         types.Log // Blockchain specific contextual infos
+}
+
+// FilterUpdatePauseOperator is a free log retrieval operation binding the contract event 0x49af92e8e702a1adb06ae79c01a1dfed719800edb7f85d9b79e2622ea33f4cf9.
+//
+// Solidity: event UpdatePauseOperator(address oldOperator, address newOperator)
+func (_Withdrawal *WithdrawalFilterer) FilterUpdatePauseOperator(opts *bind.FilterOpts) (*WithdrawalUpdatePauseOperatorIterator, error) {
+
+	logs, sub, err := _Withdrawal.contract.FilterLogs(opts, "UpdatePauseOperator")
+	if err != nil {
+		return nil, err
+	}
+	return &WithdrawalUpdatePauseOperatorIterator{contract: _Withdrawal.contract, event: "UpdatePauseOperator", logs: logs, sub: sub}, nil
+}
+
+// WatchUpdatePauseOperator is a free log subscription operation binding the contract event 0x49af92e8e702a1adb06ae79c01a1dfed719800edb7f85d9b79e2622ea33f4cf9.
+//
+// Solidity: event UpdatePauseOperator(address oldOperator, address newOperator)
+func (_Withdrawal *WithdrawalFilterer) WatchUpdatePauseOperator(opts *bind.WatchOpts, sink chan<- *WithdrawalUpdatePauseOperator) (event.Subscription, error) {
+
+	logs, sub, err := _Withdrawal.contract.WatchLogs(opts, "UpdatePauseOperator")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(WithdrawalUpdatePauseOperator)
+				if err := _Withdrawal.contract.UnpackLog(event, "UpdatePauseOperator", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseUpdatePauseOperator is a log parse operation binding the contract event 0x49af92e8e702a1adb06ae79c01a1dfed719800edb7f85d9b79e2622ea33f4cf9.
+//
+// Solidity: event UpdatePauseOperator(address oldOperator, address newOperator)
+func (_Withdrawal *WithdrawalFilterer) ParseUpdatePauseOperator(log types.Log) (*WithdrawalUpdatePauseOperator, error) {
+	event := new(WithdrawalUpdatePauseOperator)
+	if err := _Withdrawal.contract.UnpackLog(event, "UpdatePauseOperator", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
+// WithdrawalUpdateSignerIterator is returned from FilterUpdateSigner and is used to iterate over the raw logs and unpacked data for UpdateSigner events raised by the Withdrawal contract.
+type WithdrawalUpdateSignerIterator struct {
+	Event *WithdrawalUpdateSigner // Event containing the contract specifics and raw log
+
+	contract *bind.BoundContract // Generic contract to use for unpacking event data
+	event    string              // Event name to use for unpacking event data
+
+	logs chan types.Log        // Log channel receiving the found contract events
+	sub  ethereum.Subscription // Subscription for errors, completion and termination
+	done bool                  // Whether the subscription completed delivering logs
+	fail error                 // Occurred error to stop iteration
+}
+
+// Next advances the iterator to the subsequent event, returning whether there
+// are any more events found. In case of a retrieval or parsing error, false is
+// returned and Error() can be queried for the exact failure.
+func (it *WithdrawalUpdateSignerIterator) Next() bool {
+	// If the iterator failed, stop iterating
+	if it.fail != nil {
+		return false
+	}
+	// If the iterator completed, deliver directly whatever's available
+	if it.done {
+		select {
+		case log := <-it.logs:
+			it.Event = new(WithdrawalUpdateSigner)
+			if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+				it.fail = err
+				return false
+			}
+			it.Event.Raw = log
+			return true
+
+		default:
+			return false
+		}
+	}
+	// Iterator still in progress, wait for either a data or an error event
+	select {
+	case log := <-it.logs:
+		it.Event = new(WithdrawalUpdateSigner)
+		if err := it.contract.UnpackLog(it.Event, it.event, log); err != nil {
+			it.fail = err
+			return false
+		}
+		it.Event.Raw = log
+		return true
+
+	case err := <-it.sub.Err():
+		it.done = true
+		it.fail = err
+		return it.Next()
+	}
+}
+
+// Error returns any retrieval or parsing error occurred during filtering.
+func (it *WithdrawalUpdateSignerIterator) Error() error {
+	return it.fail
+}
+
+// Close terminates the iteration process, releasing any pending underlying
+// resources.
+func (it *WithdrawalUpdateSignerIterator) Close() error {
+	it.sub.Unsubscribe()
+	return nil
+}
+
+// WithdrawalUpdateSigner represents a UpdateSigner event raised by the Withdrawal contract.
+type WithdrawalUpdateSigner struct {
+	Signer common.Address
+	Value  bool
+	Raw    types.Log // Blockchain specific contextual infos
+}
+
+// FilterUpdateSigner is a free log retrieval operation binding the contract event 0x863d338cad74814b108a06288ad5e0e80d56495e0332238b1d2cdcfa0ca8e5ce.
+//
+// Solidity: event UpdateSigner(address signer, bool value)
+func (_Withdrawal *WithdrawalFilterer) FilterUpdateSigner(opts *bind.FilterOpts) (*WithdrawalUpdateSignerIterator, error) {
+
+	logs, sub, err := _Withdrawal.contract.FilterLogs(opts, "UpdateSigner")
+	if err != nil {
+		return nil, err
+	}
+	return &WithdrawalUpdateSignerIterator{contract: _Withdrawal.contract, event: "UpdateSigner", logs: logs, sub: sub}, nil
+}
+
+// WatchUpdateSigner is a free log subscription operation binding the contract event 0x863d338cad74814b108a06288ad5e0e80d56495e0332238b1d2cdcfa0ca8e5ce.
+//
+// Solidity: event UpdateSigner(address signer, bool value)
+func (_Withdrawal *WithdrawalFilterer) WatchUpdateSigner(opts *bind.WatchOpts, sink chan<- *WithdrawalUpdateSigner) (event.Subscription, error) {
+
+	logs, sub, err := _Withdrawal.contract.WatchLogs(opts, "UpdateSigner")
+	if err != nil {
+		return nil, err
+	}
+	return event.NewSubscription(func(quit <-chan struct{}) error {
+		defer sub.Unsubscribe()
+		for {
+			select {
+			case log := <-logs:
+				// New log arrived, parse the event and forward to the user
+				event := new(WithdrawalUpdateSigner)
+				if err := _Withdrawal.contract.UnpackLog(event, "UpdateSigner", log); err != nil {
+					return err
+				}
+				event.Raw = log
+
+				select {
+				case sink <- event:
+				case err := <-sub.Err():
+					return err
+				case <-quit:
+					return nil
+				}
+			case err := <-sub.Err():
+				return err
+			case <-quit:
+				return nil
+			}
+		}
+	}), nil
+}
+
+// ParseUpdateSigner is a log parse operation binding the contract event 0x863d338cad74814b108a06288ad5e0e80d56495e0332238b1d2cdcfa0ca8e5ce.
+//
+// Solidity: event UpdateSigner(address signer, bool value)
+func (_Withdrawal *WithdrawalFilterer) ParseUpdateSigner(log types.Log) (*WithdrawalUpdateSigner, error) {
+	event := new(WithdrawalUpdateSigner)
+	if err := _Withdrawal.contract.UnpackLog(event, "UpdateSigner", log); err != nil {
+		return nil, err
+	}
+	event.Raw = log
+	return event, nil
+}
+
 // WithdrawalWithdrawalEventIterator is returned from FilterWithdrawalEvent and is used to iterate over the raw logs and unpacked data for WithdrawalEvent events raised by the Withdrawal contract.
 type WithdrawalWithdrawalEventIterator struct {
 	Event *WithdrawalWithdrawalEvent // Event containing the contract specifics and raw log
@@ -1170,6 +1571,7 @@ func (it *WithdrawalWithdrawalEventIterator) Close() error {
 
 // WithdrawalWithdrawalEvent represents a WithdrawalEvent event raised by the Withdrawal contract.
 type WithdrawalWithdrawalEvent struct {
+	Key    *big.Int
 	Signer common.Address
 	To     common.Address
 	Token  common.Address
@@ -1177,24 +1579,44 @@ type WithdrawalWithdrawalEvent struct {
 	Raw    types.Log // Blockchain specific contextual infos
 }
 
-// FilterWithdrawalEvent is a free log retrieval operation binding the contract event 0xac1b5146d64cce65efba97457b49a2d72f9be2601587498d2be35fc679d229e1.
+// FilterWithdrawalEvent is a free log retrieval operation binding the contract event 0x427a5c054bf4858fa5eaf4fbc1125a64160741ef59682db0fdc9687b38580944.
 //
-// Solidity: event WithdrawalEvent(address signer, address to, address token, uint256 amount)
-func (_Withdrawal *WithdrawalFilterer) FilterWithdrawalEvent(opts *bind.FilterOpts) (*WithdrawalWithdrawalEventIterator, error) {
+// Solidity: event WithdrawalEvent(uint256 indexed key, address signer, address to, address indexed token, uint256 amount)
+func (_Withdrawal *WithdrawalFilterer) FilterWithdrawalEvent(opts *bind.FilterOpts, key []*big.Int, token []common.Address) (*WithdrawalWithdrawalEventIterator, error) {
 
-	logs, sub, err := _Withdrawal.contract.FilterLogs(opts, "WithdrawalEvent")
+	var keyRule []interface{}
+	for _, keyItem := range key {
+		keyRule = append(keyRule, keyItem)
+	}
+
+	var tokenRule []interface{}
+	for _, tokenItem := range token {
+		tokenRule = append(tokenRule, tokenItem)
+	}
+
+	logs, sub, err := _Withdrawal.contract.FilterLogs(opts, "WithdrawalEvent", keyRule, tokenRule)
 	if err != nil {
 		return nil, err
 	}
 	return &WithdrawalWithdrawalEventIterator{contract: _Withdrawal.contract, event: "WithdrawalEvent", logs: logs, sub: sub}, nil
 }
 
-// WatchWithdrawalEvent is a free log subscription operation binding the contract event 0xac1b5146d64cce65efba97457b49a2d72f9be2601587498d2be35fc679d229e1.
+// WatchWithdrawalEvent is a free log subscription operation binding the contract event 0x427a5c054bf4858fa5eaf4fbc1125a64160741ef59682db0fdc9687b38580944.
 //
-// Solidity: event WithdrawalEvent(address signer, address to, address token, uint256 amount)
-func (_Withdrawal *WithdrawalFilterer) WatchWithdrawalEvent(opts *bind.WatchOpts, sink chan<- *WithdrawalWithdrawalEvent) (event.Subscription, error) {
+// Solidity: event WithdrawalEvent(uint256 indexed key, address signer, address to, address indexed token, uint256 amount)
+func (_Withdrawal *WithdrawalFilterer) WatchWithdrawalEvent(opts *bind.WatchOpts, sink chan<- *WithdrawalWithdrawalEvent, key []*big.Int, token []common.Address) (event.Subscription, error) {
 
-	logs, sub, err := _Withdrawal.contract.WatchLogs(opts, "WithdrawalEvent")
+	var keyRule []interface{}
+	for _, keyItem := range key {
+		keyRule = append(keyRule, keyItem)
+	}
+
+	var tokenRule []interface{}
+	for _, tokenItem := range token {
+		tokenRule = append(tokenRule, tokenItem)
+	}
+
+	logs, sub, err := _Withdrawal.contract.WatchLogs(opts, "WithdrawalEvent", keyRule, tokenRule)
 	if err != nil {
 		return nil, err
 	}
@@ -1226,9 +1648,9 @@ func (_Withdrawal *WithdrawalFilterer) WatchWithdrawalEvent(opts *bind.WatchOpts
 	}), nil
 }
 
-// ParseWithdrawalEvent is a log parse operation binding the contract event 0xac1b5146d64cce65efba97457b49a2d72f9be2601587498d2be35fc679d229e1.
+// ParseWithdrawalEvent is a log parse operation binding the contract event 0x427a5c054bf4858fa5eaf4fbc1125a64160741ef59682db0fdc9687b38580944.
 //
-// Solidity: event WithdrawalEvent(address signer, address to, address token, uint256 amount)
+// Solidity: event WithdrawalEvent(uint256 indexed key, address signer, address to, address indexed token, uint256 amount)
 func (_Withdrawal *WithdrawalFilterer) ParseWithdrawalEvent(log types.Log) (*WithdrawalWithdrawalEvent, error) {
 	event := new(WithdrawalWithdrawalEvent)
 	if err := _Withdrawal.contract.UnpackLog(event, "WithdrawalEvent", log); err != nil {
@@ -1237,3 +1659,4 @@ func (_Withdrawal *WithdrawalFilterer) ParseWithdrawalEvent(log types.Log) (*Wit
 	event.Raw = log
 	return event, nil
 }
+
